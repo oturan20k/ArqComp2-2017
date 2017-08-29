@@ -1,0 +1,33 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+
+main(){
+	int x;
+	int y;
+	int z=0;
+	printf("Ingrese el numero 1 de la multiplicacion: ");
+	scanf("%d",&x);
+	printf("Ingrese el numero 2 de la multiplicacion: ");
+	scanf("%d",&y);
+	for(int cont=1;cont<=y;cont+=1){
+		z=z+x;
+	}
+	printf("el resultado de la multiplicacion es: %d",z);
+	
+	return 0;
+	
+	int x1;
+	int y1;
+	int z1=0;
+	printf("Ingrese el numero 1 de la division: ");
+	scanf("%d",&x);
+	printf("Ingrese el numero 2 de la division: ");
+	scanf("%d",&y);
+	for(int cont1=x1;cont1>0;cont1-=y1){
+		z=z+1;
+	}
+	printf("el resultado de la multiplicacion es: %d",z);
+	
+	return 0;
+}
