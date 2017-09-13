@@ -74,3 +74,13 @@ int main(){
 14. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
 15. Implemente una función **Div** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule la division de un número entero sin signo.
 
+
+
+### SOLUCION
+
+4./Respuesta
+Para un numero que en binario sea mayor de 13 bits se inicializa con la funcion SETHI
+
+
+
+
