@@ -44,8 +44,8 @@ else{
  0x0014 SLL %l3,5,%l4
  0x0018 cmp %l3,%l4
  0x001c BG a TRUE
- 0x0020 SLL %l1,1,%l5
- 0x0024 add %lo,%l5,%l2
+  0x0020 SLL %l1,1,%l5
+  0x0024 add %lo,%l5,%l2
  0x0028 BA a Exit
  TRUE
   0x002c mov,%l1,%Oo
