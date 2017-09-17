@@ -66,6 +66,22 @@ else{
 }
 }
 ```
+```
+main:
+0x0000 mov 8,%lo
+0x0004 mov -10,%l1
+0x0008 mov 0,%l2
+0x000c cmp %lo,%l1
+0x0010 BE a TRUE
+ 0x0014 %l2,3,%Oo
+0x0018 BA a Exit
+TRUE
+0x001c mov %l1,%O1
+Exit
+0x0020 NOP
+
+
+```
 c.
  ```c
 int main(){
