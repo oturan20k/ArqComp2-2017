@@ -76,9 +76,9 @@ main:
  0x0014 SRL %l2,3,%Oo
 0x0018 BA a Exit
 TRUE
-0x001c mov %l1,%O1
+ 0x001c mov %l1,%O1
 Exit
-0x0020 NOP
+ 0x0020 NOP
 
 
 ```
