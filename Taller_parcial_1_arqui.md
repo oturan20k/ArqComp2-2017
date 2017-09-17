@@ -34,6 +34,23 @@ else{
 	return a+c;
 }
  ```
+ main:
+ 0x0000 mov 8 , %lo
+ 0x0004 sethi 4194287 , %l1
+ 0x0008 or %l1 ,608,%l1
+ 0x000c mov 33,%l2
+ 0x0010 add %l0,%l1,%l3
+ 0x0014 SLL %l3,5,%l4
+ 0x0018 cmp %l3,%l4
+ 0x001c BG a TRUE
+ 0x0020 SLL %l1,1,%l5
+ 0x0024 add %lo,%l5,%l2
+ 0x0028 BA a Exit
+ TRUE
+  0X002c mov,%l1,%Oo
+ Exit
+  add %lo,%l2,%O1
+ 
 
 b.
  ```c
