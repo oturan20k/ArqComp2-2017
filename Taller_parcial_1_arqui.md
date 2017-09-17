@@ -34,6 +34,7 @@ else{
 	return a+c;
 }
  ```
+ ```
  main:
  0x0000 mov 8 , %lo
  0x0004 sethi 4194287 , %l1
@@ -50,7 +51,7 @@ else{
   0X002c mov,%l1,%Oo
  Exit
   add %lo,%l2,%O1
- 
+ ```
 
 b.
  ```c
