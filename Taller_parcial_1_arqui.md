@@ -35,6 +35,7 @@ else{
 }
  ```
  ```
+ a-->%lo, b-->%l1,c-->%l2
  main:
  0x0000 mov 8 , %lo          |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000001000|
  0x0004 sethi 4194287 , %l1  |op=00|rd=10001|op2=100|1111111111111111101111|
@@ -67,6 +68,7 @@ else{
 }
 ```
 ```
+a-->%lo, b-->%l1,c-->%l2
 main:
 0x0000 mov 8,%lo     |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000001000|
 0x0004 mov -10,%l1   |op=10|rd=10001|op3=000010|rs1=00000|i=1|imm13=1111111110110|
@@ -87,6 +89,14 @@ c.
 int main(){
 	int a = -21180;
 }
+```
+```
+a-->%lo
+main:
+0x0000 sethi 4194283,%lo  |op=00|rd=10000|op2=100|1111111111111111101011|
+0x0004 or %lo,324,%lo     |op=10|rd=10000|op3=000010|rs1=10000|i=1|imm13=0000101000100|
+
+
 ```
 
 11. Convierta el siguiente código a lenguaje ensamblador, máquina **SPARC V8** y hexadecimal.
