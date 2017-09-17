@@ -73,7 +73,7 @@ main:
 0x0008 mov 0,%l2
 0x000c cmp %lo,%l1
 0x0010 BE a TRUE
- 0x0014 %l2,3,%Oo
+ 0x0014 SRL %l2,3,%Oo
 0x0018 BA a Exit
 TRUE
 0x001c mov %l1,%O1
