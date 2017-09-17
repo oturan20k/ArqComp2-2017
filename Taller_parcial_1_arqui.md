@@ -50,7 +50,7 @@ else{
  TRUE
   0x002c mov,%l1,%Oo
  Exit
- 0x0030 add %lo,%l2,%O1
+  0x0030 add %lo,%l2,%O1
  ```
 
 b.
