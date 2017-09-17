@@ -48,9 +48,9 @@ else{
  0x0024 add %lo,%l5,%l2
  0x0028 BA a Exit
  TRUE
-  0X002c mov,%l1,%Oo
+  0x002c mov,%l1,%Oo
  Exit
-  add %lo,%l2,%O1
+ 0x0030 add %lo,%l2,%O1
  ```
 
 b.
