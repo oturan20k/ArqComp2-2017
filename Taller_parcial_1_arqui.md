@@ -154,7 +154,7 @@ FOR
 0x0008 cmp %l1,%i1
 0x000c BG a salida
 0x0010  add %lo,%io,lo
-0x0014 BA   FO
+0x0014 BA   For
 0x0018  add %l1,1,%l1
 salida
 0x001c mov %lo,%Oo
