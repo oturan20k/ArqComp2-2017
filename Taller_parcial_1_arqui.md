@@ -196,12 +196,22 @@ salida
 ### SOLUCION
 
 4./
-* Para un numero que en binario sea mayor de 13 bits se inicializa con la funcion SETHI.
-EJ:
+* Para un numero que en binario sea mayor de 13 bits se inicializa con la instruccion SETHI.
+* EJ:
 ```
 1.se crea un registro en el que se guardara en este caso a = L0
-2.Tamiben se convierte el numero a binario como se indica abajo
+2.Tamiben se convierte el numero a binario como se indica abajo.
 a = 23500 = 100011010100000000
+3.despues se complementa con ceros a la izquierda hasta tener un numero de 32 bits de la siguiente manera.
+00000000000000100011010100000000
+4.Del binario resultante se toman los 22 bits mas significativos o los primeros 22  bits de izquierda a derecha y se combierten a decimal.
+5.tambien se toman los 10 bits restantes y se convierten a decimal tambien.
+000000000000001001101             01000000000
+        141                           256
+6.Despues de haber identificado y tambien convertido a decimal se ejecuta la instruccion [SETHI] para los primeros 22 bits y tambien una instruccion [OR] para los otros 10 bits de la siguiente forma.
+SETHI 141, %L0  //se pone la instruccion SETHI despues el decimal resultante de los primeros 22 bits y depues el registor en el que se guardara todo esto para el lenguaje ensamblador.
+OR L0, 256, %01 //se pone la instruccion OR despues el registro donde se encunetra el decimal restante de los primeros 22 bits, despues el decimal resultante de los ultimos 10 bits y despues el registro destino
+
 ```
 
 
