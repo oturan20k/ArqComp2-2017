@@ -196,13 +196,13 @@ salida
 ### SOLUCION
 
 4./
-* Para un numero que en binario sea mayor de 13 bits se inicializa con la funcion SETHI
-* EJ:
-* 1.se crea un registro en el que se guardara en este caso a = L0
-* 2.Tamiben se convierte el numero a binario como se indica abajo
-
-* * a = 23500 = 100011010100000000
-
+* Para un numero que en binario sea mayor de 13 bits se inicializa con la funcion SETHI.
+EJ:
+```
+1.se crea un registro en el que se guardara en este caso a = L0
+2.Tamiben se convierte el numero a binario como se indica abajo
+a = 23500 = 100011010100000000
+```
 
 
 5/
