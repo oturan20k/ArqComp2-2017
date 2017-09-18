@@ -132,13 +132,16 @@ int main(){
  0x002c add %l4,45,%O1  |op=10|rd=01001|op3=000000|rs1=10100|i=1|imm13=0000000101101|
  
  
- 
- 
- 
  ```
 12. Implemente una función **Mul** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que realice la multiplicación de dos enteros sin signo usando solo sumas.
+ 
+
+
+13. Implemente la función **Pot** en lenguaje de alto nivel,lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que realice la potencia de dos números enteros sin signo realizando llamados a la función desarrollada en el punto 9.
+14. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
+15. Implemente una función **Div** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule la division de un número entero sin signo.
  ```
-int multi(int a,int b){
+int division(int a,int b){
 int z=0;
 for(int cont=a;cont>0;cont-=b){
 		z=z+1;
@@ -148,22 +151,18 @@ for(int cont=a;cont>0;cont-=b){
 ```
 ```
 a-->%io, b-->%i1, cont-->%l1,z-->%lo
-multi
+division
 0x0000 mov 0,%lo
 0x0004 mov %io,%l1
 FOR
 0x0008 cmp %l1,0
 0x000c BL a salida
-0x0010 add %lo,1,%lo
+0x0010  add %lo,1,%lo
 0x0014 BA     For
 0x0018  sub %l1,i1,%l1
 salida
 0x001c mov %lo,%O1
-
-13. Implemente la función **Pot** en lenguaje de alto nivel,lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que realice la potencia de dos números enteros sin signo realizando llamados a la función desarrollada en el punto 9.
-14. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
-15. Implemente una función **Div** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule la division de un número entero sin signo.
-
+```
 
 
 ### SOLUCION
