@@ -198,6 +198,12 @@ salida
 4./Respuesta
 Para un numero que en binario sea mayor de 13 bits se inicializa con la funcion SETHI
 
+5/El [OR] se puede reempélazar con instruccion sintetica MOV y la [SUBcc] se reemplaza por la instruccion sintetica [CMP]
+
+6/Las instrucciones que se utilizan el delay slot antes de saltar son la funcion CALL , JUMP AND LINK [JMPL] y el Branch en caso de que
+el bit a sea igual a cero se hace el delay slot de lo contrario no se efectuaria
+
+
 
 
 
