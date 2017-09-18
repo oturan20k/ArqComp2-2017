@@ -34,7 +34,7 @@ else{
 	return a+c;
 }
  ```
- ```
+ ```c
  a-->%lo, b-->%l1,c-->%l2
  main:
  0x0000 mov 8 , %lo          |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000001000|
@@ -90,7 +90,7 @@ int main(){
 	int a = -21180;
 }
 ```
-```
+```c
 a-->%lo
 main:
 0x0000 sethi 4194283,%lo  |op=00|rd=10000|op2=100|1111111111111111101011|
@@ -113,7 +113,7 @@ int main(){
 	return x + 45;
 }
  ```
- ```
+ ```c
  a,p-->%io |b,y-->%i1 |c-->%i2|z-->%l3
  Test
  0x0000 mov 0,%l3       |op=10|rd=10011|op3=000010|rs1=00000|i=1|imm13=0000000000000|
@@ -146,7 +146,7 @@ int mul(int a, int b){
 }
 ``` 
 
-```
+```c
 a-->%io, b-->%i1, cont-->%l1,z-->%lo
 0x0000 mov 0,%lo
 0x0004 mov 1,%l1
@@ -177,7 +177,7 @@ for(int cont=a;cont>0;cont-=b){
    return z;
 }
 ```
-```
+```c
 a-->%io, b-->%i1, cont-->%l1,z-->%lo
 
 0x0000 mov 0,%lo
