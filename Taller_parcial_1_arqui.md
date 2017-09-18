@@ -195,13 +195,38 @@ salida
 
 ### SOLUCION
 
-4./Respuesta
-Para un numero que en binario sea mayor de 13 bits se inicializa con la funcion SETHI
+4./
+*Para un numero que en binario sea mayor de 13 bits se inicializa con la funcion SETHI
+EJ:
+*1.se crea un registro en el que se guardara en este caso a = L0
+*2.Tamiben se convierte el numero a binario como se indica abajo
 
-5/El [OR] se puede reempélazar con instruccion sintetica MOV y la [SUBcc] se reemplaza por la instruccion sintetica [CMP]
+a = 23500 = 100011010100000000
 
-6/Las instrucciones que se utilizan el delay slot antes de saltar son la funcion CALL , JUMP AND LINK [JMPL] y el Branch en caso de que
+
+
+5/
+*El [OR] se puede reempélazar con instruccion sintetica MOV y la [SUBcc] se reemplaza por la instruccion sintetica [CMP]
+
+6/
+*Las instrucciones que se utilizan el delay slot antes de saltar son la funcion CALL , JUMP AND LINK [JMPL] y el Branch en caso de que
 el bit a sea igual a cero se hace el delay slot de lo contrario no se efectuaria
+
+7/
+*Si el bit [a] NO se encuentra en la instruccion significa que ejecuta la instruccion que esta debajo y luego salta hacia arriba con 
+el fin de continuar con las instrucciones que se encuentran en la parte superior
+
+*si el bit [a] SI se encuentra en la instruccion significa que ejecutara solamente las instrucciones que se encuentran en la parte 
+superior mas no en la parte inferior.
+
+8/
+*Se utiliza para guardar la direccion donde se ejecuta la funcion y tambien se utiliza como referencia para volver a ejecutar las siguientes instrucciones que se encuentran en la parte inferior de donde se se llamo la instruccion [CALL]
+
+9/
+|10|10000|000010|00000|1|0000000000101|
+
+op = 10 lo que significa que es en formato 3
+
 
 
 
