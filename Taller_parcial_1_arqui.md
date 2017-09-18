@@ -117,17 +117,17 @@ int main(){
  Test
  0x0000 mov 0,%l3
  0x0004 jmpl %O7+8,%go
- 0x0008 sub %io,i1,%lo
- 0x000c SLL %i2,2,%l1
- 0x0010 add %lo,%l1,%l3
- 0x0014 add %l3,2,%Oo
+  0x0008 sub %io,i1,%lo
+  0x000c SLL %i2,2,%l1
+  0x0010 add %lo,%l1,%l3
+  0x0014 add %l3,2,%Oo
  
  main:
  0x0018 mov 4,%io
  0x001c mov 2,%i1
  0x0020 mov -128,%i3
  0x0024 call Test
- 0x0028 mov 0,%l4
+  0x0028 mov 0,%l4
  0x002c add %l4,45,%O1
  
  
