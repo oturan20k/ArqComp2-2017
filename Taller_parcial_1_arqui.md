@@ -209,8 +209,20 @@ a = 23500 = 100011010100000000
 000000000000001001101             01000000000
         141                           256
 6.Despues de haber identificado y tambien convertido a decimal se ejecuta la instruccion [SETHI] para los primeros 22 bits y tambien una instruccion [OR] para los otros 10 bits de la siguiente forma.
+ 
 SETHI 141, %L0  //se pone la instruccion SETHI despues el decimal resultante de los primeros 22 bits y depues el registor en el que se guardara todo esto para el lenguaje ensamblador.
-OR L0, 256, %01 //se pone la instruccion OR despues el registro donde se encunetra el decimal restante de los primeros 22 bits, despues el decimal resultante de los ultimos 10 bits y despues el registro destino
+ 
+OR L0, 256, %01 //se pone la instruccion OR despues el registro donde se encunetra el decimal restante de los primeros 22 bits, despues el decimal resultante de los ultimos 10 bits y despues el registro destino.
+
+7.Despues se pasana ambas instrucciones a lenguaje de maquina de la siguiente manera con el OP: 00 y OP2:100
+OP   RD  OP2      INM DE 22 BITS
+00|10000|100|0000000000000000000000010001101|
+ 
+8. Y para el OR es  en formato 3 con OP:00 y OP3:000010 y RS: 10000
+ 
+OP  RD    OP2     RS  I  BITS RESULTANTES
+10|01001|000010|10000|1|0100000000|  
+
 
 ```
 
