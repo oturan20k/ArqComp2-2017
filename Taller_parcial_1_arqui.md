@@ -251,6 +251,7 @@ int mul(int a, int b){
 
 ```c
 a-->%io, b-->%i1, cont-->%l1,z-->%lo
+mul:
 0x0000 mov 0,%lo        |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000000000|       
 0x0004 mov 1,%l1        |op=10|rd=10001|op3=000010|rs1=00000|i=1|imm13=0000000000001|
 For
@@ -283,6 +284,7 @@ int pot(int a,int b){
 }
 
 a-->%i0,b-->%i0;c-->%lo,i-->%l1
+pot:
 0x0000 mov %i0,%lo    |op=10|rd=10000|op3=000010|rs1=00000|i=0|unused=00000000|rs2=11000|
 0x0004 mov 1,%l1      |op=10|rd=10001|op3=000010|rs1=00000|i=1|imm13=0000000000001|
 0x0008 cmp i0%,0      |op=10|rd=00000|op3=010100|rs1=11000|i=1|imm13=0000000000000|    
@@ -306,7 +308,7 @@ Exit
 
 14. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
 ```c
-int fac (int a){
+int fact (int a){
   int b,fac=1;
   for (b=1 ; b<=a ; b++)
     {
@@ -316,6 +318,7 @@ int fac (int a){
     
 }
 b-->%lo, fac-->%l1, a-->%i0
+fact:
 0x0000 mov 0,%lo      |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000000000|
 0x0004 mov 1,%l1      |op=10|rd=10001|op3=000010|rs1=00000|i=1|imm13=0000000000001|
 For
@@ -344,7 +347,7 @@ for(int cont=a;cont>0;cont-=b){
 ```
 ```c
 a-->%io, b-->%i1, cont-->%l1,z-->%lo
-
+div:
 0x0000 mov 0,%lo      |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000000000|
 0x0004 mov %io,%l1    |op=10|rd=10001|op3=000010|rs1=00000|i=0|unused=00000000|rs2=11000|
 FOR
