@@ -4,9 +4,7 @@
 ###### Porcentaje 30%
 
 
-1. Describa la Taxonomía de Flynn.
-2. Diga cuales son los 4 principios de diseño.
-3. Explique los tres formatos que se usan en la arquitectura SPARC V8, y que instrucciones usan los formatos correspondientes a la arquitectura **SPARC V8** 
+
 4. Explique cómo inicializar un valor grande, que ocupe más de 13 bits, en la arquitectura **SPARC V8**.
 
 * Para un numero que en binario sea mayor de 13 bits se inicializa con la instruccion SETHI.
@@ -271,6 +269,29 @@ salida
 
 
 13. Implemente la función **Pot** en lenguaje de alto nivel,lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que realice la potencia de dos números enteros sin signo realizando llamados a la función desarrollada en el punto 9.
+```c
+	a = 2;
+	pot = 0;
+	b = a;
+	
+	if(pot==0){
+		return 1;
+	}else{
+	
+	
+	for(i=1;i<pot;i++){
+		
+		a=a*b;
+	}
+	return a;
+}
+	
+
+
+
+}
+```
+
 14. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
 ```c
 int fac (int a){
