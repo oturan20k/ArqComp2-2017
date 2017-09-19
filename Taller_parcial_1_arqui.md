@@ -74,9 +74,63 @@ R/
 ```
 ```
 R/
-* |10|10000|000010|00000|1|0000000000101|
+|10|10000|000010|00000|1|0000000000101|
 
-* op = 10 lo que significa que es en formato 3
+Op[10] = Con esto nos damos cuenta que es en formato 3
+rd[10000] = aqui se muestra el registro destino y nos damos cuenta que es el 16 en binario por lo tanto es el registro L0
+op3[000010] = con esto nos damos cuenta que el OP3 corresponde a un [OR]
+rs1[00000] = este es el registro fuente uno y como tenemos el numero cero en decimal y binario sabemos que es el registro G0
+[1]=con el nos damos cuentaa que hay un inmediato
+[0000000000101] = el inmediato es el quivalente en binario del numero 5
+
+#PARA EL LENGUAJE ENSAMBLADOR TENDRIAMOS
+MOV 5, %L0
+
+
+|10|10001|000010|00000|1|1111111111010|
+
+Op[10] = Con esto nos damos cuenta que es en formato 3
+rd[10001 = aqui se muestra el registro destino y nos damos cuenta que es el 17 en binario por lo tanto es el registro L1
+op3[000010] = con esto nos damos cuenta que el OP3 corresponde a un [OR]
+rs1[00000] = este es el registro fuente uno y como tenemos el numero cero en decimal y binario sabemos que es el registro G0
+[1]=con el nos damos cuentaa que hay un inmediato
+[1111111111010] = el inmediato es el quivalente en binario del numero -6
+
+#PARA EL LENGUAJE ENSAMBLADOR TENDRIAMOS
+MOV -6, %L1
+
+|10|01000|000000|10001|0|00000000|10000|
+
+Op[10] = Con esto nos damos cuenta que es en formato 3
+rd[01000] = aqui se muestra el registro destino y nos damos cuenta que es el 8 en binario por lo tanto es el registro O0
+op3[00000] = con esto nos damos cuenta que el OP3 corresponde a un [ADD]
+rs1[10001] = este es el registro fuente 1 y como tenemos el numero 17 en decimal y binario sabemos que es el registro L1
+[0]=con el nos damos cuentaa que hay un inmediato y como hay un 0 sabemos que no hay inmediato
+[10000] = ya que no hay inmediato el ultimo registro se define como registro fuente 2 y es igual a 16 en binario lo cual seria L0
+
+LENGIAJE ENSAMBLADOR 
+ADD %l1,%l0,%O0
+ 
+LENGUAJE DE ALTO NIVEL 
+
+Lenguaje de alto nivel 
+  
+  
+int main():
+  {
+ 
+ 
+    int x=5;
+
+     int y=-6;
+    
+   
+     return x+y;
+ 
+  }
+
+
+
 ```
 
 10. Convierta el siguiente código a lenguaje ensamblador, máquina **SPARC V8** y hexadecimal.
