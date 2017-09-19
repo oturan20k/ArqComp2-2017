@@ -82,7 +82,7 @@ MOV 5, %L0
 |10|10001|000010|00000|1|1111111111010|
 
 Op[10] = Con esto nos damos cuenta que es en formato 3
-rd[10001 = aqui se muestra el registro destino y nos damos cuenta que es el 17 en binario por lo tanto es el registro L1
+rd[10001] = aqui se muestra el registro destino y nos damos cuenta que es el 17 en binario por lo tanto es el registro L1
 op3[000010] = con esto nos damos cuenta que el OP3 corresponde a un [OR]
 rs1[00000] = este es el registro fuente uno y como tenemos el numero cero en decimal y binario sabemos que es el registro G0
 [1]=con el nos damos cuentaa que hay un inmediato
@@ -140,8 +140,8 @@ else{
  ```c
  a-->%lo, b-->%l1,c-->%l2
  main:
- 0x0000 mov 8 , %lo          |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000001000|
- 0x0004 sethi 4194287 , %l1  |op=00|rd=10001|op2=100|1111111111111111101111|
+ 0x0000 mov 8 , %lo          |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000001000|   0xA01802008
+ 0x0004 sethi 4194287 , %l1  |op=00|rd=10001|op2=100|1111111111111111101111|                 0x233FFFEF
  0x0008 or %l1 ,608,%l1      |op=10|rd=10001|op3=000010|rs1=10001|i=1|imm13=0001001100000|
  0x000c mov 33,%l2           |op=10|rd=10010|op3=000010|rs1=00000|i=1|imm13=0000000100001|
  0x0010 add %l0,%l1,%l3      |op=10|rd=10011|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10001|
