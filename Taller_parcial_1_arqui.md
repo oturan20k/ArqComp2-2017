@@ -144,17 +144,17 @@ else{
  0x0004 sethi 4194287 , %l1  |op=00|rd=10001|op2=100|1111111111111111101111|                 0x233FFFEF
  0x0008 or %l1 ,608,%l1      |op=10|rd=10001|op3=000010|rs1=10001|i=1|imm13=0001001100000|   0xA2146260
  0x000c mov 33,%l2           |op=10|rd=10010|op3=000010|rs1=00000|i=1|imm13=0000000100001|   0xA4102021
- 0x0010 add %l0,%l1,%l3      |op=10|rd=10011|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10001| 0xA6040011
- 0x0014 SLL %l3,5,%l4        |op=10|rd=10100|op3=100101|rs1=10011|i=1|shcnt=00101|           0xA92CE5
- 0x0018 cmp %l3,%l4          |op=10|rd=00000|op3=010100|rs1=10011|i=0|unused=00000000|rs2=1 0100|  0x80A4C014
- 0x001c BG a TRUE            |op=00|a=1|cond=1010|010|disp22=0000000000000000000100|         0x34800004
-  0x0020 SLL %l1,1,%l5       |op=10|rd=10101|op3=100101|rs1=10001|i=1|shcnt=00001|           0xAB2C61
-  0x0024 add %lo,%l5,%l2     |op=10|rd=10010|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10101|  0X5202000
- 0x0028 BA a Exit            |op=00|a=1|cond=1000|010|disp22=0000000000000000000010|              0X3080002
+ 0x0010 add %l0,%l1,%l3      |op=10|rd=10011|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10001|
+ 0x0014 SLL %l3,5,%l4        |op=10|rd=10100|op3=100101|rs1=10011|i=1|unused=00000000|shc=00101|
+ 0x0018 cmp %l3,%l4          |op=10|rd=00000|op3=010100|rs1=10011|i=0|unused=00000000|rs2=10100|
+ 0x001c BG a TRUE            |op=00|a=1|cond=1010|010|disp22=0000000000000000000100|
+  0x0020 SLL %l1,1,%l5       |op=10|rd=10101|op3=100101|rs1=10001|i=1|unused=00000000|shc=00001|
+  0x0024 add %lo,%l5,%l2     |op=10|rd=10010|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10101|
+ 0x0028 BA a Exit            |op=00|a=1|cond=1000|010|disp22=0000000000000000000010|
  TRUE
-  0x002c mov,%l1,%Oo         |op=10|rd=01000|op3=000010|rs1=00000|i=0|unused=00000000|rs2=10001|  0X58100001
+  0x002c mov,%l1,%Oo         |op=10|rd=01000|op3=000010|rs1=O0000|i=0|unused=00000000|rs2=10001|
  Exit
-  0x0030 add %lo,%l2,%O1     |op=10|rd=01001|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10010|  0X92040012
+  0x0030 add %lo,%l2,%O1     |op=10|rd=01001|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10010|
  ```
 
 b.
@@ -173,17 +173,17 @@ else{
 ```c
 a-->%lo, b-->%l1,c-->%l2
 main:
-0x0000 mov 8,%lo     |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000001000|         0X50080008
-0x0004 mov -10,%l1   |op=10|rd=10001|op3=000010|rs1=00000|i=1|imm13=1111111110110|         0XA2103FF6
-0x0008 mov 0,%l2     |op=10|rd=10010|op3=000010|rs1=00000|i=1|imm13=0000000000000|         0XA4102000
-0x000c cmp %lo,%l1   |op=10|rd=00000|op3=010100|rs1=10000|i=0|unused=00000000|rs2=10001|   0X80A40011
-0x0010 BE a TRUE     |op=00|a=1|cond=0001|010|disp22=0000000000000000000011|               0X22800003
- 0x0014 SRL %l2,3,%Oo|op=10|rd=01000|op3=100110|rs1=10010|i=1|shcnt=00011|                 0X9134A3
-0x0018 BA a Exit     |op=00|a=1|cond=1000|010|disp22=0000000000000000000010|               0X08000002
+0x0000 mov 8,%lo     |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000001000|
+0x0004 mov -10,%l1   |op=10|rd=10001|op3=000010|rs1=00000|i=1|imm13=1111111110110|
+0x0008 mov 0,%l2     |op=10|rd=10010|op3=000010|rs1=00000|i=1|imm13=0000000000000|
+0x000c cmp %lo,%l1   |op=10|rd=00000|op3=010100|rs1=10000|i=0|unused=00000000|rs2=10001|
+0x0010 BE a TRUE     |op=00|a=1|cond=0001|010|disp22=0000000000000000000011|
+ 0x0014 SRL %l2,3,%Oo|op=10|rd=01000|op3=100110|rs1=10010|i=1|unused=00000000|shc=00011|
+0x0018 BA a Exit     |op=00|a=1|cond=1000|010|disp22=0000000000000000000010|
 TRUE
- 0x001c mov %l1,%O1  |op=10|rd=01001|op3=000010|rs1=00000|i=0|unused=00000000|rs2=10001|   0X92100011
+ 0x001c mov %l1,%O1  |op=10|rd=01001|op3=000010|rs1=00000|i=0|unused=00000000|rs2=10001|
 Exit
- 0x0020 NOP          |op=00|00000|100|0000000000000000000000|                              0X01000000
+ 0x0020 NOP          |op=00|00000|100|0000000000000000000000|
 
 
 ```
@@ -196,8 +196,8 @@ int main(){
 ```c
 a-->%lo
 main:
-0x0000 sethi 4194283,%lo  |op=00|rd=10000|op2=100|1111111111111111101011|                 0X113FFFEB
-0x0004 or %lo,324,%lo     |op=10|rd=10000|op3=000010|rs1=10000|i=1|imm13=0000101000100|   0XA0144144
+0x0000 sethi 4194283,%lo  |op=00|rd=10000|op2=100|1111111111111111101011|
+0x0004 or %lo,324,%lo     |op=10|rd=10000|op3=000010|rs1=10000|i=1|imm13=0000101000100|
 
 
 ```
@@ -219,20 +219,20 @@ int main(){
  ```c
  a,p-->%io |b,y-->%i1 |c-->%i2|z-->%l3
  Test
- 0x0000 mov 0,%l3       |op=10|rd=10011|op3=000010|rs1=00000|i=1|imm13=0000000000000|         0XA6102000
- 0x0004 jmpl %O7+8,%go  |op=10|rd=00000|op3=111000|rs1=01111|i=1|rs2=0000000001000|           0X81C3E008
-  0x0008 sub %io,i1,%lo |op=10|rd=10000|op3=000100|rs1=11000|i=0|unused=00000000|rs2=11001|   0XA0260019
-  0x000c SLL %i2,2,%l1  |op=10|rd=10001|op3=100101|rs1=11010|i=1|shcnt=00010|                 0XA32EA2
-  0x0010 add %lo,%l1,%l3|op=10|rd=10011|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10001|   0XA6040011
-  0x0014 add %l3,2,%Oo  |op=10|rd=01000|op3=000000|rs1=10011|i=1|imm13=00000000000010|        0X9004E002
+ 0x0000 mov 0,%l3       |op=10|rd=10011|op3=000010|rs1=00000|i=1|imm13=0000000000000|
+ 0x0004 jmpl %O7+8,%go  |op=10|rd=00000|op3=111000|rs1=01111|i=1|rs2=0000000001000|
+  0x0008 sub %io,i1,%lo |op=10|rd=10000|op3=000100|rs1=11000|i=0|unused=00000000|rs2=11001|
+  0x000c SLL %i2,2,%l1  |op=10|rd=10001|op3=100101|rs1=11010|i=1|unused=00000000|shc=00010|
+  0x0010 add %lo,%l1,%l3|op=10|rd=10011|op3=000000|rs1=10000|i=0|unused=00000000|rs2=10001|
+  0x0014 add %l3,2,%Oo  |op=10|rd=01000|op3=000000|rs1=10011|i=1|imm13=0000000000010|
  
  main:
- 0x0018 mov 4,%io       |op=10|rd=11000|op3=000010|rs1=00000|i=1|imm13=0000000000100|         0XB0102004
- 0x001c mov 2,%i1       |op=10|rd=11001|op3=0 00010|rs1=00000|i=1|imm13=0000000000010|        0XB2102002
- 0x0020 mov -128,%i2    |op=10|rd=11010|op3=000010|rs1=00000|i=1|imm13=1111110000000|         0XB2103F80
- 0x0024 call Test       |op=01|disp30=111111111111111111111111110110|                         0X7FFFFFF6
-  0x0028 mov 0,%l4      |op=10|rd=10100|op3=000010|rs1=00000|i=1|imm13=0000000000000|         0XA8202000
- 0x002c add %l4,45,%O1  |op=10|rd=01001|op3=000000|rs1=10100|i=1|imm13=0000000101101|         0X9205202D
+ 0x0018 mov 4,%io       |op=10|rd=11000|op3=000010|rs1=00000|i=1|imm13=0000000000100|
+ 0x001c mov 2,%i1       |op=10|rd=11001|op3=000010|rs1=00000|i=1|imm13=0000000000010|
+ 0x0020 mov -128,%i2    |op=10|rd=11010|op3=000010|rs1=00000|i=1|imm13=1111110000000|
+ 0x0024 call Test       |op=01|disp30=111111111111111111111111110110|
+  0x0028 mov 0,%l4      |op=10|rd=10100|op3=000010|rs1=00000|i=1|imm13=0000000000000|
+ 0x002c add %l4,45,%O1  |op=10|rd=01001|op3=000000|rs1=10100|i=1|imm13=0000000101101|
  
  
  ```
@@ -258,7 +258,7 @@ For
 0x000c BG a salida      |op=00|a=1|cond=1010|010|disp22=0000000000000000000100|
 0x0010  add %lo,%io,lo  |op=10|rd=10000|op3=000000|rs1=10000|i=0|unused=00000000|rs2=11000|
 0x0014 BA   For         |op=00|a=0|cond=1000|010|disp22=1111111111111111111100|
-0x0018  add %l1,1,%l1   |op=10|rd=10000|op3=000000|rs1=10000|i=1|imm13=00000000000001|
+0x0018  add %l1,1,%l1   |op=10|rd=10001|op3=000000|rs1=10001|i=1|imm13=00000000000001|
 salida
 0x001c mov %lo,%Oo      |op=10|rd=01000|op3=000010|rs1=00000|i=0|unused=00000000|rs2=10000|
 
@@ -270,26 +270,38 @@ salida
 
 13. Implemente la función **Pot** en lenguaje de alto nivel,lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que realice la potencia de dos números enteros sin signo realizando llamados a la función desarrollada en el punto 9.
 ```c
-	a = 2;
-	pot = 0;
-	b = a;
-	
-	if(pot==0){
-		return 1;
-	}else{
-	
-	
-	for(i=1;i<pot;i++){
-		
-		a=a*b;
-	}
+int pot(int a,int b){
+	int c = a;
+	if(b==0){
+	return 1;
+	}else{	
+	for(int i=1;i<b;i++){
+		a=a*c;
+		}
 	return a;
 }
-	
-
-
-
 }
+
+a-->%i0,b-->%i0;c-->%lo,i-->%l1
+0x0000 mov %i0,%lo
+0x0004 mov 1,%l1
+0x0008 cmp %i0,0
+0x000c BNE a True
+0x0010 mov 0,%Oo
+0x0014 BA a Exit
+True
+for
+0x0018 cmp %l1,%i1
+0x001c BG a Exit1
+0x0020 SLL %i0,%lo,%i0
+0x0024 BA    For
+0x0028 add %l1,1,%l1
+Exit1
+0x002c mov %i0,%O1
+Exit
+0x0030 NOP
+
+
 ```
 
 14. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
@@ -304,16 +316,17 @@ int fac (int a){
     
 }
 b-->%lo, fac-->%l1, a-->%i0
-0x0000 mov 0,%lo
-0x0004 mov 1,%l1
+0x0000 mov 0,%lo      |op=10|rd=10000|op3=000010|rs1=00000|i=1|imm13=0000000000000|
+0x0004 mov 1,%l1      |op=10|rd=10001|op3=000010|rs1=00000|i=1|imm13=0000000000001|
 For
-0x0008 cmp %l1,%i0
-0x000c BG a salida 
-0x0010 SLL %lo,%l1,%l1
-0x0014 BA    For
-0x0018 add %lo,1,%lo
+0x0008 cmp %l1,%i0    |op=10|rd=00000|op3=010100|rs1=10001|i=0|unused=00000000|rs2=11000|
+0x000c BG a salida    |op=00|a=1|cond=1010|010|disp22=0000000000000000000100|
+0x0010 SLL %lo,%l1,%l1|op=10|rd=10001|op3=100101|rs1=10000|i=1|unused=00000000|rs2=10001|
+0x0014 BA    For      |op=00|a=0|cond=1000|010|disp22=1111111111111111111100|
+0x0018 add %lo,1,%lo  |op=10|rd=10000|op3=000000|rs1=10000|i=1|imm13=00000000000001|
 salida
-0x001c mov %l1,%Oo
+0x001c mov %l1,%Oo    |op=10|rd=01000|op3=000010|rs1=00000|i=0|unused=00000000|rs2=10001|
+
 
 
 ```
