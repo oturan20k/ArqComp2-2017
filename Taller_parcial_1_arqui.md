@@ -8,16 +8,121 @@
 2. Diga cuales son los 4 principios de diseño.
 3. Explique los tres formatos que se usan en la arquitectura SPARC V8, y que instrucciones usan los formatos correspondientes a la arquitectura **SPARC V8** 
 4. Explique cómo inicializar un valor grande, que ocupe más de 13 bits, en la arquitectura **SPARC V8**.
+
+* Para un numero que en binario sea mayor de 13 bits se inicializa con la instruccion SETHI.
+* EJ:
+```
+1.se crea un registro en el que se guardara en este caso a = L0
+2.Tamiben se convierte el numero a binario como se indica abajo.
+a = 23500 = 100011010100000000
+3.despues se complementa con ceros a la izquierda hasta tener un numero de 32 bits de la siguiente manera.
+00000000000000100011010100000000
+4.Del binario resultante se toman los 22 bits mas significativos o los primeros 22  bits de izquierda a derecha y se combierten a decimal.
+5.tambien se toman los 10 bits restantes y se convierten a decimal tambien.
+000000000000001001101             01000000000
+        141                           256
+6.Despues de haber identificado y tambien convertido a decimal se ejecuta la instruccion [SETHI] para los primeros 22 bits y tambien una instruccion [OR] para los otros 10 bits de la siguiente forma.
+ 
+SETHI 141, %L0  //se pone la instruccion SETHI despues el decimal resultante de los primeros 22 bits y depues el registor en el que se guardara todo esto para el lenguaje ensamblador.
+ 
+OR L0, 256, %01 //se pone la instruccion OR despues el registro donde se encunetra el decimal restante de los primeros 22 bits, despues el decimal resultante de los ultimos 10 bits y despues el registro destino.
+
+7.Despues se pasana ambas instrucciones a lenguaje de maquina de la siguiente manera con el OP: 00 y OP2:100
+OP   RD  OP2      INM DE 22 BITS
+00|10000|100|0000000000000000000000010001101|
+ 
+8. Y para el OR es  en formato 3 con OP:00 y OP3:000010 y RS: 10000
+ 
+OP  RD    OP2     RS  I  BITS RESULTANTES
+10|01001|000010|10000|1|0100000000| 
+```
 5. Como puedo reescribir la instrucción **(OR y SUBcc)** cuando inicializo y  comparó 2 registros.
+
+R/
+
+* El [OR] se puede reempélazar con instruccion sintetica MOV y la [SUBcc] se reemplaza por la instruccion sintetica [CMP]
+
 6. ¿Qué instrucciones utilizan el delay slot antes de saltar?
+R/
+
+* Las instrucciones que se utilizan el delay slot antes de saltar son la funcion CALL , JUMP AND LINK [JMPL] y el Branch en caso de que el bit a sea igual a cero se hace el delay slot de lo contrario no se efectuaria.
+
 7. ¿Qué significa el bit **a**, en el formato 2 de las instrucciones **BRANCH**?
+R/
+
+* Si el bit [a] NO se encuentra en la instruccion significa que ejecuta la instruccion que esta debajo y luego salta hacia arriba con el fin de continuar con las instrucciones que se encuentran en la parte superior
+* si el bit [a] SI se encuentra en la instruccion significa que ejecutara solamente las instrucciones que se encuentran en la parte superior mas no en la parte inferior.
+
 8. ¿Por que la instrucción **CALL** utilizar el registro %o7 ---> registro 15.?
+R/
+
+* Se utiliza para guardar la direccion donde se ejecuta la funcion y tambien se utiliza como referencia para volver a ejecutar las siguientes instrucciones que se encuentran en la parte inferior de donde se se llamo la instruccion [CALL]
+
 9. convertir el programa en lenguaje de máquina a lenguaje ensamblador y luego a lenguaje de alto nivel el siguiente programa:
 ```
 10100000000100000010000000000101
 10100010000100000011111111111010
 10010000000001000100000000010000
 ```
+
+```
+R/
+
+|10|10000|000010|00000|1|0000000000101|
+
+Op[10] = Con esto nos damos cuenta que es en formato 3
+rd[10000] = aqui se muestra el registro destino y nos damos cuenta que es el 16 en binario por lo tanto es el registro L0
+op3[000010] = con esto nos damos cuenta que el OP3 corresponde a un [OR]
+rs1[00000] = este es el registro fuente uno y como tenemos el numero cero en decimal y binario sabemos que es el registro G0
+[1]=con el nos damos cuentaa que hay un inmediato
+[0000000000101] = el inmediato es el quivalente en binario del numero 5
+
+#PARA EL LENGUAJE ENSAMBLADOR TENDRIAMOS
+MOV 5, %L0
+
+
+|10|10001|000010|00000|1|1111111111010|
+
+Op[10] = Con esto nos damos cuenta que es en formato 3
+rd[10001 = aqui se muestra el registro destino y nos damos cuenta que es el 17 en binario por lo tanto es el registro L1
+op3[000010] = con esto nos damos cuenta que el OP3 corresponde a un [OR]
+rs1[00000] = este es el registro fuente uno y como tenemos el numero cero en decimal y binario sabemos que es el registro G0
+[1]=con el nos damos cuentaa que hay un inmediato
+[1111111111010] = el inmediato es el quivalente en binario del numero -6
+
+#PARA EL LENGUAJE ENSAMBLADOR TENDRIAMOS
+MOV -6, %L1
+
+|10|01000|000000|10001|0|00000000|10000|
+
+Op[10] = Con esto nos damos cuenta que es en formato 3
+rd[01000] = aqui se muestra el registro destino y nos damos cuenta que es el 8 en binario por lo tanto es el registro O0
+op3[00000] = con esto nos damos cuenta que el OP3 corresponde a un [ADD]
+rs1[10001] = este es el registro fuente 1 y como tenemos el numero 17 en decimal y binario sabemos que es el registro L1
+[0]=con el nos damos cuentaa que hay un inmediato y como hay un 0 sabemos que no hay inmediato
+[10000] = ya que no hay inmediato el ultimo registro se define como registro fuente 2 y es igual a 16 en binario lo cual seria L0
+
+LENGIAJE ENSAMBLADOR 
+ADD %l1,%l0,%O0
+ 
+LENGUAJE DE ALTO NIVEL 
+
+Lenguaje de alto nivel 
+  
+  
+int main():
+  {
+ 
+ 
+    int x=5;
+
+     int y=-6;
+    
+   
+     return x+y;
+ 
+  }
+```  
 10. Convierta el siguiente código a lenguaje ensamblador, máquina **SPARC V8** y hexadecimal.
 a.
  ```c
@@ -219,39 +324,6 @@ salida
 ```
 
 
-### SOLUCION
-
-4./
-* Para un numero que en binario sea mayor de 13 bits se inicializa con la funcion SETHI.
-EJ:
-```
-1.se crea un registro en el que se guardara en este caso a = L0
-2.Tamiben se convierte el numero a binario como se indica abajo
-a = 23500 = 100011010100000000
-```
-
-
-5/
-* El [OR] se puede reempélazar con instruccion sintetica MOV y la [SUBcc] se reemplaza por la instruccion sintetica [CMP]
-
-6/
-* Las instrucciones que se utilizan el delay slot antes de saltar son la funcion CALL , JUMP AND LINK [JMPL] y el Branch en caso de que
-el bit a sea igual a cero se hace el delay slot de lo contrario no se efectuaria
-
-7/
-* Si el bit [a] NO se encuentra en la instruccion significa que ejecuta la instruccion que esta debajo y luego salta hacia arriba con 
-el fin de continuar con las instrucciones que se encuentran en la parte superior
-
-*si el bit [a] SI se encuentra en la instruccion significa que ejecutara solamente las instrucciones que se encuentran en la parte 
-superior mas no en la parte inferior.
-
-8/
-* Se utiliza para guardar la direccion donde se ejecuta la funcion y tambien se utiliza como referencia para volver a ejecutar las siguientes instrucciones que se encuentran en la parte inferior de donde se se llamo la instruccion [CALL]
-
-9/
-* |10|10000|000010|00000|1|0000000000101|
-
-* op = 10 lo que significa que es en formato 3
 
 
 
