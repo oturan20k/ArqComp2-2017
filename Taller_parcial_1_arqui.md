@@ -292,7 +292,7 @@ a-->%i0,b-->%i0;c-->%lo,i-->%l1
 True
 for
 0x0018 cmp %l1,%i1
-0x001c BG a Exit1
+0x001c BGE a Exit1
 0x0020 SLL %i0,%lo,%i0
 0x0024 BA    For
 0x0028 add %l1,1,%l1
@@ -349,7 +349,7 @@ a-->%io, b-->%i1, cont-->%l1,z-->%lo
 0x0004 mov %io,%l1    |op=10|rd=10001|op3=000010|rs1=00000|i=0|unused=00000000|rs2=11000|
 FOR
 0x0008 cmp %l1,0      |op=10|rd=00000|op3=010100|rs1=10011|i=1|imm13=0000000000000|
-0x000c BL a salida    |op=00|a=1|cond=0011|010|disp22=0000000000000000000100|
+0x000c BLe a salida   |op=00|a=1|cond=0010|010|disp22=0000000000000000000100|
 0x0010  add %lo,1,%lo |op=10|rd=10000|op3=000000|rs1=10000|i=1|imm13=0000000000001|
 0x0014 BA     For     |op=00|a=0|cond=1000|010|disp22=1111111111111111111100|
 0x0018  sub %l1,i1,%l1|op=10|rd=10001|op3=000100|rs1=10001|i=0|unused=00000000|rs2=11001|
