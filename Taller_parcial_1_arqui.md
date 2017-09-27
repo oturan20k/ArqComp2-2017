@@ -296,6 +296,7 @@ for
 0x0018 cmp %l1,%i1    |op=10|rd=00000|op3=010100|rs1=10001|i=0|unused=00000000|rs2=11001|
 0x001c BGE a Exit1    |op=00|a=1|cond=1011|010|disp22=0000000000000000000100|
 0x0020 call mult      |op=10|rd=11000|op3=100101|rs1=11000|i=1|unused=00000000|rs2=10000|
+0x0024 mov %io,%l0
 0x0024 BA    For      |op=00|a=0|cond=1000|010|disp22=1111111111111111111100|
 0x0028 add %l1,1,%l1  |op=10|rd=10001|op3=000000|rs1=10001|i=1|imm13=00000000000001|
 Exit1
@@ -312,7 +313,7 @@ int fact (int a){
   int b,fac=1;
   for (b=1 ; b<=a ; b++)
     {
-         fac=b*fac;
+         fac=mul(b,fac);
     }
     return fac;
     
@@ -324,7 +325,8 @@ fact:
 For
 0x0008 cmp %l1,%i0    |op=10|rd=00000|op3=010100|rs1=10001|i=0|unused=00000000|rs2=11000|
 0x000c BG a salida    |op=00|a=1|cond=1010|010|disp22=0000000000000000000100|
-0x0010 SLL %lo,%l1,%l1|op=10|rd=10001|op3=100101|rs1=10000|i=1|unused=00000000|rs2=10001|
+0x0010 call mul       |op=10|rd=10001|op3=100101|rs1=10000|i=1|unused=00000000|rs2=10001|
+0x0014 mov %l1,%l1
 0x0014 BA    For      |op=00|a=0|cond=1000|010|disp22=1111111111111111111100|
 0x0018 add %lo,1,%lo  |op=10|rd=10000|op3=000000|rs1=10000|i=1|imm13=00000000000001|
 salida
