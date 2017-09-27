@@ -277,7 +277,7 @@ int pot(int a,int b){
 	return 1;
 	}else{	
 	for(int i=1;i<b;i++){
-		a=a*c;
+		a=mul(a*c);
 		}
 	return a;
 }
@@ -295,7 +295,7 @@ True
 for
 0x0018 cmp %l1,%i1    |op=10|rd=00000|op3=010100|rs1=10001|i=0|unused=00000000|rs2=11001|
 0x001c BGE a Exit1    |op=00|a=1|cond=1011|010|disp22=0000000000000000000100|
-0x0020 SLL %i0,%lo,%i0|op=10|rd=11000|op3=100101|rs1=11000|i=1|unused=00000000|rs2=10000|
+0x0020 call mult      |op=10|rd=11000|op3=100101|rs1=11000|i=1|unused=00000000|rs2=10000|
 0x0024 BA    For      |op=00|a=0|cond=1000|010|disp22=1111111111111111111100|
 0x0028 add %l1,1,%l1  |op=10|rd=10001|op3=000000|rs1=10001|i=1|imm13=00000000000001|
 Exit1
