@@ -1,0 +1,41 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to D:/Procesador1/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to D:/Procesador1/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+WARNING:HDLParsers:3607 - Unit work/adder is now defined in a different file.  It was defined in "D:/Procesador1/adder.vhd", and is now defined in "D:/Procesador1/inst_memory.vhd".
+WARNING:HDLParsers:3607 - Unit work/adder/Behavioral is now defined in a different file.  It was defined in "D:/Procesador1/adder.vhd", and is now defined in "D:/Procesador1/inst_memory.vhd".
+Compiling vhdl file "D:/Procesador1/adder.vhd" in Library work.
+Architecture behavioral of Entity adder is up to date.
+Compiling vhdl file "D:/Procesador1/inst_memory.vhd" in Library work.
+Entity <inst_memory> compiled.
+Entity <inst_memory> (Architecture <Behavioral>) compiled.
+Entity <adder> compiled.
+Entity <adder> (Architecture <behavioral>) compiled.
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> 
+
+Total memory usage is 214568 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
