@@ -1,0 +1,2 @@
+vhdtdtfi -prj Procesador1 -o D:/Procesador1/Alu.vhi -module Alu -template D:/xilinix/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Alu.vhd 
+vhdtdtfi -prj Procesador1 -o D:/Procesador1/Alu.vhi -module Alu -template D:/xilinix/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Alu.vhd 

@@ -1,0 +1,1 @@
+vhdtdtfi -prj Procesador1 -o D:/Procesador1/MUX.vhi -module MUX -template D:/xilinix/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work MUX.vhd 

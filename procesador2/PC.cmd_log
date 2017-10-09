@@ -1,0 +1,10 @@
+xst -intstyle ise -ifn "D:/Procesador1/PC.xst" -ofn "D:/Procesador1/PC.syr" 
+xst -intstyle ise -ifn "D:/Procesador1/PC.xst" -ofn "D:/Procesador1/PC.syr" 
+xst -intstyle ise -ifn "D:/Procesador1/PC.xst" -ofn "D:/Procesador1/PC.syr" 
+xst -intstyle ise -ifn "D:/Procesador1/PC.xst" -ofn "D:/Procesador1/PC.syr" 
+xst -intstyle ise -ifn "D:/Procesador1/PC.xst" -ofn "D:/Procesador1/PC.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 PC.ngc PC.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o PC_map.ncd PC.ngd PC.pcf 
+par -w -intstyle ise -ol high -t 1 PC_map.ncd PC.ncd PC.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml PC.twx PC.ncd -o PC.twr PC.pcf 
+vhdtdtfi -prj Procesador1 -o D:/Procesador1/PC.vhi -module PC -template D:/xilinix/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work PC.vhd 
