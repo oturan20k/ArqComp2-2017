@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLParsers" num="3353" delta="old" >&quot;<arg fmt="%s" index="1">D:/Procesador1/Alu.vhd</arg>&quot; Line <arg fmt="%d" index="2">55</arg>. <arg fmt="%s" index="3">Primary unit Alu</arg> is being redefined within the file. Prior definition (on line <arg fmt="%d" index="4">32</arg>) is discarded. (LRM 11.1)
+</msg>
+
+<msg type="internal" file="Xst" num="0" delta="new" srcfile="../interf/cmain.c" srcline="3464" srcrcs="1.56" >
+Process will terminate. For technical support on this issue, please open a WebCase with this project attached at http://www.xilinx.com/support. 
+</msg>
+
+</messages>
+

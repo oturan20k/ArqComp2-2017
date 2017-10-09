@@ -1,0 +1,51 @@
+V3 38
+FL D:/Procesador1/adder.vhd 2017/10/08.23:57:46 P.20131013
+EN work/adder 1507530100 FL D:/Procesador1/adder.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/NUMERIC_STD 1381692181
+AR work/adder/Behavioral 1507530101 \
+      FL D:/Procesador1/adder.vhd EN work/adder 1507530100
+FL D:/Procesador1/Alu.vhd 2017/10/08.23:50:34 P.20131013
+EN work/Alu 1507530116 FL D:/Procesador1/Alu.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/Alu/Behavioral 1507530117 \
+      FL D:/Procesador1/Alu.vhd EN work/Alu 1507530116
+FL D:/Procesador1/inst_memory.vhd 2017/10/08.23:15:04 P.20131013
+EN work/inst_memory 1507530104 FL D:/Procesador1/inst_memory.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
+      PB std/TEXTIO 1381692176
+AR work/inst_memory/arqinst_memory 1507530105 \
+      FL D:/Procesador1/inst_memory.vhd EN work/inst_memory 1507530104
+FL D:/Procesador1/MUX.vhd 2017/10/05.19:33:23 P.20131013
+EN work/MUX 1507530110 FL D:/Procesador1/MUX.vhd PB ieee/std_logic_1164 1381692176
+AR work/MUX/Behavioral 1507530111 \
+      FL D:/Procesador1/MUX.vhd EN work/MUX 1507530110
+FL D:/Procesador1/M_Instrutions.vhd 2017/10/02.23:34:13 P.20131013
+EN work/instructionMemory 0 FL D:/Procesador1/M_Instrutions.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
+      PB std/TEXTIO 1381692176
+AR work/instructionMemory/arqInstructionMemory 0 \
+      FL D:/Procesador1/M_Instrutions.vhd EN work/instructionMemory 0
+FL D:/Procesador1/PC.vhd 2017/10/08.22:44:27 P.20131013
+EN work/PC 1507530102 FL D:/Procesador1/PC.vhd PB ieee/std_logic_1164 1381692176
+AR work/PC/Behavioral 1507530103 \
+      FL D:/Procesador1/PC.vhd EN work/PC 1507530102
+FL D:/Procesador1/procesador2.vhd 2017/10/09.01:11:25 P.20131013
+EN work/procesador2 1507530118 FL D:/Procesador1/procesador2.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/procesador2/arq_procesador2 1507530119 \
+      FL D:/Procesador1/procesador2.vhd EN work/procesador2 1507530118 CP adder \
+      CP PC CP inst_memory CP unidad_control CP reg_file CP MUX CP SEU CP Alu
+FL D:/Procesador1/reg_file.vhd 2017/10/08.23:23:01 P.20131013
+EN work/reg_file 1507530108 FL D:/Procesador1/reg_file.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/reg_file/Behavioral 1507530109 \
+      FL D:/Procesador1/reg_file.vhd EN work/reg_file 1507530108
+FL D:/Procesador1/SEU.vhd 2017/10/05.19:30:04 P.20131013
+EN work/SEU 1507530112 FL D:/Procesador1/SEU.vhd PB ieee/std_logic_1164 1381692176
+AR work/SEU/Behavioral 1507530113 \
+      FL D:/Procesador1/SEU.vhd EN work/SEU 1507530112
+FL D:/Procesador1/unidad_control.vhd 2017/10/08.23:36:27 P.20131013
+EN work/unidad_control 1507530106 FL D:/Procesador1/unidad_control.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/unidad_control/Behavioral 1507530107 \
+      FL D:/Procesador1/unidad_control.vhd EN work/unidad_control 1507530106
